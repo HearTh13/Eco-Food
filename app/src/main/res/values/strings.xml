@@ -3,4 +3,21 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="user">Herodion</string>
+    <string name="edit_account">Edit Account</string>
+    <string name="menu1">Orders</string>
+    <string name="menu2">ECO Wallet</string>
+    <string name="menu2_value">Rp 10.500,00</string>
+    <string name="menu3">Reviews</string>
+    <string name="menu4">Cart</string>
+    <string name="others1">Other options</string>
+    <string name="others2">Sign Out</string>
+    <string name="nav1">Home</string>
+    <string name="nav2">Message</string>
+    <string name="nav3">Profile</string>
+    <string name="desc1">Profile</string>
+    <string name="review">Review</string>
+    <string name="cart">Cart</string>
+    <string name="orders">Orders</string>
+    <string name="wallet">Wallet</string>
 </resources>
