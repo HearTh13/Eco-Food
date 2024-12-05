@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContent {
             EcoFoodTheme {
-//                Nav()
+                Nav()
             }
         }
     }
