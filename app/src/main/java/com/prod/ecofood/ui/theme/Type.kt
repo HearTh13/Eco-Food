@@ -1,4 +1,4 @@
-package com.prod.uts2_225314018.ui.theme
+package com.prod.ecofood.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,4 +1,4 @@
-package com.prod.uts2_225314018.ui.theme
+package com.prod.ecofood.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
