@@ -23,7 +23,7 @@ fun Nav(){
             .background(Color.Black)
             .padding(WindowInsets.navigationBars.asPaddingValues())
     ){
-        NavHost(navController = navController, startDestination = "Cart"){
+        NavHost(navController = navController, startDestination = "StartUp"){
             composable("StartUp") {
 
             }
