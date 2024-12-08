@@ -1,6 +1,5 @@
 package com.prod.ecofood
 
-import android.widget.RadioButton
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

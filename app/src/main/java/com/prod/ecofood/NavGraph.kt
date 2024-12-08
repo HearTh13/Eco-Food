@@ -12,16 +12,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.prod.ecofood.objects.Cart
 
 @Composable
 fun Nav(){
     val navController = rememberNavController()
+    val cart = Cart()
     Box(
         modifier = Modifier
             .background(Color.Black)
             .padding(WindowInsets.navigationBars.asPaddingValues())
     ){
-        NavHost(navController = navController, startDestination = "Profile"){
+        NavHost(navController = navController, startDestination = "Cart"){
             composable("StartUp") {
 
             }
@@ -35,7 +37,7 @@ fun Nav(){
 
             }
             composable("Cart") {
-
+                Cart(navController, cart)
             }
             composable("Checkout") {
 

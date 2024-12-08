@@ -173,9 +173,7 @@ fun Profile(navController: NavController){
                 modifier = Modifier.clickable { navController.navigate("StartUp") }
             )
         }
-        Spacer(
-            modifier = Modifier.weight(1f)
-        )
+        Spacer(modifier = Modifier.weight(1f))
         BottomNavBar(navController, navButton)
     }
 }
