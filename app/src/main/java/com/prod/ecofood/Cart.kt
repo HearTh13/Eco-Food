@@ -3,6 +3,7 @@ package com.prod.ecofood
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,7 +25,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -181,26 +184,23 @@ fun Cart(navController: NavController, cart: Cart){
                     }
                 }
             }
-//        }
-//        else {
-//            Box(
-//                contentAlignment = Alignment.Center,
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .weight(1f)
-//                    .clickable {
-//                        cart.addItem(mutableListOf("Steak - Outback", 120000, R.drawable.it_outback_steak))
-//                        itemArray = cart.arrays
-//                        totalPrice = cart.totalPrice
-//                        Log.d(TAG, itemArray.toString())
-//                    }
-//            ){
-//                Text(
-//                    text = "The cart is empty.",
-//                    color = Color.Gray,
-//                )
-//            }
-//        }
+        if (itemArray.isNotEmpty()){
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable {
+                        navController.navigate("Checkout")
+                    }
+                    .border(
+                        width = 2.dp,
+                        brush = SolidColor(Color.Black),
+                        shape = RoundedCornerShape(8.dp)
+                    )
+            ){
+                Text("Proceed to Checkout")
+            }
+        }
         Spacer(modifier = Modifier.weight(1f))
         BottomNavBar(navController, navButton)
     }
