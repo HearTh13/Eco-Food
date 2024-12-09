@@ -2,9 +2,12 @@ package com.prod.ecofood.objects
 
 import android.util.Log
 import androidx.annotation.RequiresApi
+import com.prod.ecofood.R
 
 class Cart {
-    var arrays: MutableList<MutableList<Any>> = mutableListOf()
+    var arrays: MutableList<MutableList<Any>> = mutableListOf(
+
+    )
     var totalPrice: Int = 0
         get() {
             var price: Int = 0

@@ -16,7 +16,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -47,29 +49,35 @@ fun Cart(navController: NavController, cart: Cart){
     var totalPrice by remember { mutableStateOf(cart.totalPrice) }
     val numberUtil = NumberFormatter()
     val navButton: Int = 3
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White)
     ) {
-        Row(
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .background(Color(0xFFFFC100))
-                .padding(12.dp)
+                .fillMaxSize()
+                .background(Color.White)
+                .verticalScroll(rememberScrollState())
         ) {
-            Text(
-                text = "Cart",
-                fontSize = 28.sp
-            )
-            Spacer(Modifier.weight(1f))
-            val image = painterResource(R.drawable.ic_cart)
-            Image(
-                painter = image,
-                contentDescription = "Image",
-                modifier = Modifier.size(30.dp)
-            )
-        }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color(0xFFFFC100))
+                    .padding(12.dp)
+            ) {
+                Text(
+                    text = "Cart",
+                    fontSize = 28.sp
+                )
+                Spacer(Modifier.weight(1f))
+                val image = painterResource(R.drawable.ic_cart)
+                Image(
+                    painter = image,
+                    contentDescription = "Image",
+                    modifier = Modifier.size(30.dp)
+                )
+            }
 //        if (itemArray.isNotEmpty()){
             Spacer(Modifier.padding(5.dp))
             Row {
@@ -184,25 +192,30 @@ fun Cart(navController: NavController, cart: Cart){
                     }
                 }
             }
-        if (itemArray.isNotEmpty()){
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable {
-                        navController.navigate("Checkout")
-                    }
-                    .border(
-                        width = 2.dp,
-                        brush = SolidColor(Color.Black),
-                        shape = RoundedCornerShape(8.dp)
-                    )
-            ){
-                Text("Proceed to Checkout")
+            if (itemArray.isNotEmpty()){
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            navController.navigate("Checkout")
+                        }
+                        .border(
+                            width = 2.dp,
+                            brush = SolidColor(Color.Black),
+                            shape = RoundedCornerShape(8.dp)
+                        )
+                ){
+                    Text("Proceed to Checkout")
+                }
             }
         }
-        Spacer(modifier = Modifier.weight(1f))
-        BottomNavBar(navController, navButton)
+        BottomNavBar(
+            navController = navController,
+            navButton = navButton,
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+        )
     }
 
 }

@@ -24,7 +24,7 @@ import androidx.navigation.compose.rememberNavController
 import com.prod.ecofood.ui.theme.EcoFoodTheme
 
 @Composable
-fun BottomNavBar(navController: NavController, navButton: Int){
+fun BottomNavBar(navController: NavController, navButton: Int, modifier: Modifier = Modifier){
     val colors: Array<Color> = arrayOf(
         Color(0xFFFFFFFF),  // White
         Color(0xFFFFFFFF),  // White
@@ -34,7 +34,7 @@ fun BottomNavBar(navController: NavController, navButton: Int){
     colors[navButton] = Color(0xFFFFC100)
     Row(
         horizontalArrangement = Arrangement.Center,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .background(Color.White)
     ) {
@@ -62,7 +62,7 @@ fun BottomNavBar(navController: NavController, navButton: Int){
         Box(
             modifier = Modifier
                 .background(colors[1], RoundedCornerShape(bottomStart = 32.dp, bottomEnd = 32.dp))
-                .clickable { navController.navigate("Message") }
+                .clickable { navController.navigate("Category") }
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
