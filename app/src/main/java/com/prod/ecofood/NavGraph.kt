@@ -25,14 +25,14 @@ fun Nav(){
             .background(Color.Black)
             .padding(WindowInsets.navigationBars.asPaddingValues())
     ){
-        NavHost(navController = navController, startDestination = "Category"){
+        NavHost(navController = navController, startDestination = "StartUp"){
             composable("StartUp") {
-
+                LogoScreen(navController)
+            }
+            composable("LogoToo"){
+                LogoToo(navController)
             }
             composable("Home") {
-
-            }
-            composable("Detail") {
 
             }
             composable("Category") {
