@@ -22,7 +22,7 @@ fun Nav(){
     val item = Items()
     Box(
         modifier = Modifier
-            .background(Color.Black)
+            .background(Color.White)
             .padding(WindowInsets.navigationBars.asPaddingValues())
     ){
         NavHost(navController = navController, startDestination = "StartUp"){
@@ -46,6 +46,9 @@ fun Nav(){
             }
             composable("Profile") {
                 Profile(navController)
+            }
+            composable("Bought") {
+                Bought(navController, cart)
             }
         }
     }
