@@ -30,10 +30,10 @@ fun Nav(){
                 LogoScreen(navController)
             }
             composable("LogoToo"){
-                LogoToo(navController)
+                WasteLessScreen(navController)
             }
             composable("Home") {
-
+                Home(navController, item, cart)
             }
             composable("Category") {
                 CategoryPage(navController, item, cart)
@@ -46,6 +46,9 @@ fun Nav(){
             }
             composable("Profile") {
                 Profile(navController)
+            }
+            composable("Payment"){
+                ManualTransferScreen(navController, cart)
             }
             composable("Bought") {
                 Bought(navController, cart)

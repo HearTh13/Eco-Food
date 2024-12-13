@@ -38,7 +38,12 @@ import com.prod.ecofood.utilities.NumberFormatter
 
 @Composable
 fun CategoryPage(navController: NavController, item: Items, cart: Cart) {
-    var categoryName by remember { mutableStateOf("All") }
+    var categoryName by remember { mutableStateOf(item.category) }
+    var notif: Int by remember { mutableStateOf(0) }
+
+    val updateNotif: (Int) -> Unit = { newNotif ->
+        notif = newNotif
+    }
     item.showCategory(categoryName)
     Box(
         modifier = Modifier
@@ -156,12 +161,6 @@ fun CategoryPage(navController: NavController, item: Items, cart: Cart) {
                             }
                         )
                     }
-                    Icon(
-                        painter = painterResource(id = R.drawable.filter), // Replace with your filter icon
-                        contentDescription = "Filter",
-                        tint = Color.Gray,
-                        modifier = Modifier.size(32.dp).clickable { /* Action */ }
-                    )
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -174,6 +173,7 @@ fun CategoryPage(navController: NavController, item: Items, cart: Cart) {
                     items(item.show.size) { index ->
                         val product = item.show[index]
                         ProductCard(product = product) {
+                            updateNotif(notif + 1)
                             cart.addItem(product)
                         }
                     }
@@ -187,7 +187,9 @@ fun CategoryPage(navController: NavController, item: Items, cart: Cart) {
         }
         BottomNavBar(
             navController = navController,
-            navButton = 1, modifier = Modifier
+            navButton = 1,
+            notif = notif,
+            modifier = Modifier
             .align(Alignment.BottomCenter)
         )
     }

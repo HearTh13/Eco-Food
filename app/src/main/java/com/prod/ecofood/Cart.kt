@@ -78,7 +78,6 @@ fun Cart(navController: NavController, cart: Cart){
                     modifier = Modifier.size(30.dp)
                 )
             }
-//        if (itemArray.isNotEmpty()){
             Spacer(Modifier.padding(5.dp))
             Row {
                 Text(

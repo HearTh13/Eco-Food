@@ -227,7 +227,7 @@ fun Checkout(navController: NavController, cart: Cart) {
         // Checkout Button
         Button(
             onClick = {
-                navController.navigate("Bought")
+                navController.navigate("Payment")
             },
             modifier = Modifier
                 .fillMaxWidth()

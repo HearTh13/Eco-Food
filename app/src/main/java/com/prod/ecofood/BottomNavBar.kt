@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,14 +18,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.prod.ecofood.ui.theme.EcoFoodTheme
 
 @Composable
-fun BottomNavBar(navController: NavController, navButton: Int, modifier: Modifier = Modifier){
+fun BottomNavBar(navController: NavController, navButton: Int, notif: Int = 0, modifier: Modifier = Modifier){
     val colors: Array<Color> = arrayOf(
         Color(0xFFFFFFFF),  // White
         Color(0xFFFFFFFF),  // White
@@ -104,19 +107,36 @@ fun BottomNavBar(navController: NavController, navButton: Int, modifier: Modifie
                 .background(colors[3], RoundedCornerShape(bottomStart = 32.dp, bottomEnd = 32.dp))
                 .clickable { navController.navigate("Cart") }
         ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(10.dp)
-            ) {
-                val image = painterResource(R.drawable.ic_cart)
-                Image(
-                    painter = image,
-                    contentDescription = "description",
-                    modifier = Modifier.size(20.dp)
-                )
-                Text(
-                    text = "Cart"
-                )
+            Box{
+                if (notif > 0) {
+                    Box(
+                        modifier = Modifier
+                            .size(20.dp)
+                            .background(Color.Red, CircleShape)
+                    ) {
+                        Text(
+                            text = notif.toString(),
+                            color = Color.White,
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.align(Alignment.Center)
+                        )
+                    }
+                }
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.padding(10.dp)
+                ) {
+                    val image = painterResource(R.drawable.ic_cart)
+                    Image(
+                        painter = image,
+                        contentDescription = "description",
+                        modifier = Modifier.size(20.dp)
+                    )
+                    Text(
+                        text = "Cart"
+                    )
+                }
             }
         }
     }
